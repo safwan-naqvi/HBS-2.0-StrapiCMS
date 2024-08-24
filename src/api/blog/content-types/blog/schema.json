@@ -38,15 +38,6 @@
         }
       }
     },
-    "body": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "blocks",
-      "required": true
-    },
     "slug": {
       "pluginOptions": {
         "i18n": {
@@ -63,10 +54,11 @@
       "target": "api::category.category",
       "inversedBy": "blogs"
     },
-    "users_permissions_user": {
+    "author": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "blogs"
     },
     "tags": {
       "type": "relation",
@@ -90,6 +82,15 @@
         }
       },
       "type": "text",
+      "required": true
+    },
+    "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks",
       "required": true
     }
   }

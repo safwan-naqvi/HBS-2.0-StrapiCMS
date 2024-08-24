@@ -65,18 +65,24 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "authorImage": {
-      "allowedTypes": [
-        "images"
-      ],
+    "avatar": {
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "name": {
       "type": "string",
       "required": true,
       "minLength": 3
+    },
+    "blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog",
+      "mappedBy": "author"
     }
   }
 }
